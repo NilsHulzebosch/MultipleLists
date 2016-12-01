@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MultiList</string>
+    <string name="save">Save</string>
+    <string name="create_new_to_do_list">Create new to-do list</string>
+    <string name="my_to_do_lists">MY TO-DO LISTS</string>
+    <string name="my_items">MY ITEMS</string>
+    <string name="create_new_item">Create new item</string>
+</resources>

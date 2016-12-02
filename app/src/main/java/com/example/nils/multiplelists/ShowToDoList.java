@@ -44,7 +44,6 @@ public class ShowToDoList extends AppCompatActivity {
         toDoListItems = new ArrayList<>();
         userInputET = (EditText) findViewById(R.id.inputEditText);
         dBhelper = new DBhelper(this, dbName);
-
         TextView textView = (TextView) findViewById(R.id.titleTextView);
         textView.setText(dbName);
     }
@@ -116,7 +115,7 @@ public class ShowToDoList extends AppCompatActivity {
             userInputET.setText("");
             InputMethodManager imm = (InputMethodManager) this.getSystemService(Service.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(userInputET.getWindowToken(), 0);
-            //userInputET.setFocusable(false);
+            userInputET.clearFocus();
 
             updateAdapter(); // update UI
         } else {

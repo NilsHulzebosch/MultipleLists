@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 int item_id = toDoList.id;
                 dBhelper.delete(item_id);
                 updateAdapter(); // update UI
-                Toast.makeText(arg1.getContext(), "Removed from to-do list",
+                Toast.makeText(arg1.getContext(), "Removed this to-do list",
                         Toast.LENGTH_SHORT).show();
                 return true;
             }
@@ -86,35 +86,19 @@ public class MainActivity extends AppCompatActivity {
         if (!(currentUserInput.length() == 0)) {
             ToDoList toDoList = new ToDoList(currentUserInput);
             dBhelper.create(toDoList);
-            Toast.makeText(this, "Added to to-do list", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Added this to-do list", Toast.LENGTH_SHORT).show();
 
             userInputET.setText("");
             InputMethodManager imm = (InputMethodManager) this.getSystemService(Service.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(userInputET.getWindowToken(), 0);
 
+            userInputET.clearFocus();
+
             updateAdapter(); // update UI
         } else {
             // notify to type something before saving
-            Toast.makeText(this, "Enter something you need to do", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Enter a to-do list", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public void showDialog() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("Delete entry");
-        dialog.setMessage("Are you sure you want to delete this entry?");
-
-        dialog.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                // continue with delete
-            }
-        });
-        dialog.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                // do nothing
-            }
-        });
-        dialog.show();
     }
 
     public void goToList(int pos) {
